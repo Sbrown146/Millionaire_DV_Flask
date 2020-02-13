@@ -1,0 +1,26 @@
+after git push heroku master
+
+-- heroku run python initdb.pu
+
+OR
+
+--> heroku run python
+--> from app import db
+--> db.create_all()
+--> exit()
+
+THEN
+
+PGUSER=username PGPASSWORD=password heroku pg:push millionaire DATABASE_URL --app millionaire-dv
+
+IF PASSWORD PROBLEMS
+
+run in postgres --> CREATE USER username WITH SUPERUSER PASSWORD 'password';
+
+TO CHECK IF TABLES PUSH CORRECTLY
+
+--> heroku pg:psql --app millionaire-dv
+
+TO PULL IF FRONT END CAN SEND TO DB
+
+PGUSER=username PGPASSWORD=password heroku pg:pull DATABASE_URL millionaire --app millionaire-dv
