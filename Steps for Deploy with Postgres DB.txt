@@ -1,6 +1,6 @@
 after git push heroku master
 
--- heroku run python initdb.pu
+-- heroku run python initdb.py
 
 OR
 
